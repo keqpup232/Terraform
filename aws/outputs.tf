@@ -10,10 +10,6 @@ output "region" {
   value = data.aws_region.current.name
 }
 
-output "private_ip" {
-  value = aws_network_interface.foo[count.index].private_ips
-}
-
 output "vpc_id" {
   value = aws_subnet.my_subnet.vpc_id
 }
