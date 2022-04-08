@@ -50,7 +50,7 @@ resource "aws_network_interface" "foo" {
 
 resource "aws_instance" "foo" {
   ami = data.aws_ami.ubuntu.id
-  associate_public_ip_address = true
+  #associate_public_ip_address = true
   instance_type = local.web_instance_type_map[terraform.workspace]
   count = local.web_instance_count_map[terraform.workspace]
   availability_zone = "us-west-2"
