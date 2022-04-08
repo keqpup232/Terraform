@@ -56,6 +56,7 @@ resource "aws_instance" "foo" {
   #availability_zone = "us-west-2"
 
   cpu_core_count = "1"
+  cpu_threads_per_core = "2"
 
   network_interface {
     network_interface_id = aws_network_interface.foo[count.index].id
