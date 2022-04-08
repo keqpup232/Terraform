@@ -55,7 +55,7 @@ resource "aws_instance" "foo" {
   count = local.web_instance_count_map[terraform.workspace]
   #availability_zone = "us-west-2"
 
-  cpu_core_count = "4"
+  cpu_core_count = "2"
 
   network_interface {
     network_interface_id = aws_network_interface.foo[count.index].id
