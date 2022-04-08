@@ -53,7 +53,8 @@ resource "aws_instance" "foo" {
   #associate_public_ip_address = true
   instance_type = local.web_instance_type_map[terraform.workspace]
   count = local.web_instance_count_map[terraform.workspace]
-  availability_zone = "us-west-2"
+  #availability_zone = "us-west-2"
+  name = "foo"+[count.index]
   cpu_core_count = "4"
 
   network_interface {
@@ -80,6 +81,7 @@ resource "aws_instance" "foo" {
 resource "aws_instance" "for_each"{
   for_each = local.web_instance_each_map[terraform.workspace]
 
+  name = each.key
   instance_type = each.value
   ami = data.aws_ami.ubuntu.id
 
