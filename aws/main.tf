@@ -39,7 +39,8 @@ resource "aws_subnet" "my_subnet" {
 
 resource "aws_network_interface" "foo" {
   subnet_id   = aws_subnet.my_subnet.id
-  private_ips = ["172.16.10.100"]
+  #private_ips = ["172.16.10.100"]
+  private_ips_count=local.web_instance_count_map[terraform.workspace]
 
   tags = {
     Name = "primary_network_interface"
