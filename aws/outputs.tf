@@ -11,7 +11,7 @@ output "region" {
 }
 
 output "private_ip" {
-  value = aws_network_interface.foo.private_ips
+  value = aws_network_interface.foo[count.index].private_ips
 }
 
 output "vpc_id" {
